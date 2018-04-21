@@ -2,12 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum GunType { single, spread, cannon, max }
 public class SpaceShip : MonoBehaviour {
 
 
     public float maxSpeed = 5f;
     public float rotationSpeed = 180f;
     public float shipBoundaryRadius = 0.5f;
+
+    public float lastShot;
+    public float delayBetweenShots = .3f;
+    public Gun[] guns;
+
+    GunType currentGun = GunType.single;
+
+
     // Use this for initialization
     void Start()
     {
@@ -31,16 +41,48 @@ public class SpaceShip : MonoBehaviour {
 
         //pos = RestrictToCameraBounds(pos);
         transform.position = pos;
+
+        if (Input.GetAxis("Jump") == 1)
+        {
+            Fire();
+        }
     }
 
-    Vector3 RestrictToCameraBounds(Vector3 pos)
+    public void Fire()
     {
-        pos.y = Mathf.Clamp(pos.y, -Camera.main.orthographicSize + shipBoundaryRadius, Camera.main.orthographicSize - shipBoundaryRadius);
-        float ratio = (float)Screen.width / (float)Screen.height;
-        float widthOrtho = Camera.main.orthographicSize * ratio;
-        pos.x = Mathf.Clamp(pos.x, -widthOrtho + shipBoundaryRadius, widthOrtho - shipBoundaryRadius);
+        Debug.Log("Fire");
 
-        return pos;
+        if (Time.time - lastShot < delayBetweenShots) return;
 
+        switch (currentGun)
+        {
+            case GunType.single:
+                guns[0].Fire();
+                break;
+            case GunType.spread:
+                guns[0].Fire();
+                guns[1].Fire();
+                guns[2].Fire();
+
+                break;
+            case GunType.cannon:
+                break;
+            case GunType.max:
+                break;
+            default:
+                break;
+        }
+        lastShot = Time.time;
     }
+
+    //Vector3 RestrictToCameraBounds(Vector3 pos)
+    //{
+    //    pos.y = Mathf.Clamp(pos.y, -Camera.main.orthographicSize + shipBoundaryRadius, Camera.main.orthographicSize - shipBoundaryRadius);
+    //    float ratio = (float)Screen.width / (float)Screen.height;
+    //    float widthOrtho = Camera.main.orthographicSize * ratio;
+    //    pos.x = Mathf.Clamp(pos.x, -widthOrtho + shipBoundaryRadius, widthOrtho - shipBoundaryRadius);
+
+    //    return pos;
+
+    //}
 }
