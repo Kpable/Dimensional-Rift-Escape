@@ -24,4 +24,9 @@ public class Gun : MonoBehaviour {
         Rigidbody2D bulletBody = go.GetComponent<Rigidbody2D>();
         bulletBody.velocity = transform.up * bulletSpeed;
     }
+
+    public void Beam()
+    {
+        Debug.Log("beam fire");
+    }
 }

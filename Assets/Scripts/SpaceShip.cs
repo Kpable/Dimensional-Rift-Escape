@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum GunType { single, spread, cannon, max }
+public enum GunType { single, spread, cannon, shield, max }
 public class SpaceShip : MonoBehaviour {
 
 
@@ -66,6 +66,9 @@ public class SpaceShip : MonoBehaviour {
 
                 break;
             case GunType.cannon:
+                guns[3].Beam();
+                break;
+            case GunType.shield:
                 break;
             case GunType.max:
                 break;
@@ -73,6 +76,47 @@ public class SpaceShip : MonoBehaviour {
                 break;
         }
         lastShot = Time.time;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PowerUp"))
+        {
+            Debug.Log("Hit power up");
+
+            // read what kiind of power up. 
+            GunType powerUp = collision.GetComponent<PowerUp>().powerup;
+            switch (powerUp)
+            {
+                case GunType.single:
+                    guns[1].gameObject.SetActive(false);
+                    guns[2].gameObject.SetActive(false);
+                    guns[3].gameObject.SetActive(false);
+
+                    break;
+                case GunType.spread:
+                    guns[1].gameObject.SetActive(true);
+                    guns[2].gameObject.SetActive(true);
+                    guns[3].gameObject.SetActive(false);
+
+                    break;
+                case GunType.cannon:
+                    guns[0].gameObject.SetActive(false);
+                    guns[1].gameObject.SetActive(false);
+                    guns[2].gameObject.SetActive(false);
+                    guns[3].gameObject.SetActive(true);
+                    break;
+                case GunType.shield:
+                    break;
+                case GunType.max:
+                    break;
+                default:
+                    break;
+            }
+
+            currentGun = powerUp;
+            //Destroy(collision.gameObject);
+        }
     }
 
     //Vector3 RestrictToCameraBounds(Vector3 pos)
