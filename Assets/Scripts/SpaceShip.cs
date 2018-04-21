@@ -39,7 +39,6 @@ public class SpaceShip : MonoBehaviour {
 
         pos += rot * velocity;
 
-        //pos = RestrictToCameraBounds(pos);
         transform.position = pos;
 
         if (Input.GetAxis("Jump") == 1)
@@ -107,6 +106,7 @@ public class SpaceShip : MonoBehaviour {
                     guns[3].gameObject.SetActive(true);
                     break;
                 case GunType.shield:
+                    guns[4].gameObject.SetActive(true);
                     break;
                 case GunType.max:
                     break;
@@ -119,14 +119,4 @@ public class SpaceShip : MonoBehaviour {
         }
     }
 
-    //Vector3 RestrictToCameraBounds(Vector3 pos)
-    //{
-    //    pos.y = Mathf.Clamp(pos.y, -Camera.main.orthographicSize + shipBoundaryRadius, Camera.main.orthographicSize - shipBoundaryRadius);
-    //    float ratio = (float)Screen.width / (float)Screen.height;
-    //    float widthOrtho = Camera.main.orthographicSize * ratio;
-    //    pos.x = Mathf.Clamp(pos.x, -widthOrtho + shipBoundaryRadius, widthOrtho - shipBoundaryRadius);
-
-    //    return pos;
-
-    //}
 }
