@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Meteors
+  - Player Bullets
+  - Player
+  - Enemy Bullets
+  - Enemies
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2099731889
+    locked: 0
+  - name: Player Bullets
+    uniqueID: 1110298847
+    locked: 0
+  - name: Enemies
+    uniqueID: 2066270139
+    locked: 0
+  - name: EnemyBullets
+    uniqueID: 470411723
     locked: 0
