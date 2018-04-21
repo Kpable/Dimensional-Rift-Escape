@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Gun : MonoBehaviour {
 
@@ -28,5 +29,8 @@ public class Gun : MonoBehaviour {
     public void Beam()
     {
         Debug.Log("beam fire");
+        GameObject go = Instantiate(bulletPrefab, spawnPosition.position, transform.rotation);
+        go.transform.SetParent(transform);
+        go.transform.DOScale(new Vector3(1f, 15), .5f).OnComplete(() => Destroy(go));
     }
 }
