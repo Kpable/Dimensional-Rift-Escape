@@ -12,7 +12,7 @@ public class FloatInSpace : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         body.velocity = new Vector2(Random.Range(-speed, speed), Random.Range(-speed, speed));
         body.angularVelocity = Random.Range(-roationalSpeed, roationalSpeed);
-
+        
     }
 	
 	// Update is called once per frame

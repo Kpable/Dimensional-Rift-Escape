@@ -9,9 +9,8 @@ public class SpaceShip : MonoBehaviour {
 
     public float maxSpeed = 5f;
     public float rotationSpeed = 180f;
-    public float shipBoundaryRadius = 0.5f;
 
-    public float lastShot;
+    float lastShot;
     public float delayBetweenShots = .3f;
     public Gun[] guns;
 
@@ -88,12 +87,14 @@ public class SpaceShip : MonoBehaviour {
             switch (powerUp)
             {
                 case GunType.single:
+                    guns[0].gameObject.SetActive(true);
                     guns[1].gameObject.SetActive(false);
                     guns[2].gameObject.SetActive(false);
                     guns[3].gameObject.SetActive(false);
 
                     break;
                 case GunType.spread:
+                    guns[0].gameObject.SetActive(true);
                     guns[1].gameObject.SetActive(true);
                     guns[2].gameObject.SetActive(true);
                     guns[3].gameObject.SetActive(false);
