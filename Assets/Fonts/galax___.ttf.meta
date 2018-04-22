@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2c79719358b190547aa18cf002734e2f
-timeCreated: 1524317381
+guid: fbe859f5eee35474081366c2a0a732a8
+timeCreated: 1524412400
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: KenVector Future
+  fontName: Galaxy Monkey
   fontNames:
-  - KenVector Future
+  - Galaxy Monkey
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
