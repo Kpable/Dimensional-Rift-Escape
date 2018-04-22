@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FloatInSpace : MonoBehaviour {
 
-    public float speed = 3f;
-    public float roationalSpeed = 3f;
+    public float speed = 0.5f;
+    public float roationalSpeed = 15f;
     Rigidbody2D body;
 	// Use this for initialization
 	void Start () {
