@@ -20,3 +20,32 @@ What can we learn from the experience?
 	I would've liked to see the enemies play a bigger role. Perhaps a boss that would have sub parts that needed to be destroyed or the boss themselves drop a major clue on how to solve one of the puzzles. That way you're not mindlessly shooting enemies for no reason. 
 	
 	The concept for space station rubble had potential as well, such as having indoor corridors with different enemy types like lasers, or turrets. It also would've been nice to be able to dive into some more of the story. What happened before you get there, why did you have to warp away, why was  space station in a pocket dimension? So many questions. 
+
+Future Ideas/Current bugs
+- Reactor ship
+  - Have turrets on it protecting the runes. Have player disable them first some how
+- Camera needs to stop lerping on warp, potentially 9way ghost? 
+- Have meteors split off into smaller meteors
+- Show meteors and rubble taking damage. 
+- Rubble/meteors contribute to reactor strain?
+- Text too high up. 
+- Make smaller debris less impactful
+- Fix player physics so they aren't infinitely moving after being hit by a pebble
+- Player shows damage being taken.
+- Enemies show damage being taken
+- Save/implement High score in points 
+- Save/implement High score in time
+- Space array nodes further apart for easier travel
+- Finish puzzle designs/implementation
+- Implement beam reflection off reflective surfaces. And shield?
+- Incorporate weapons into puzzle solving
+- Makes weapons scrollable once obtained?
+- Fight bosses to get weapon upgrades?
+- Different weapon definitions.
+- Fix beam cannon. 
+- Make enemies smarter
+- Rune password, last entry that resets them stays pressed
+- Additional shmup tools, like bombs, dash maybe
+- Implement collapse
+- Power up drop the right way instead of just floating. 
+- Indoor corridors?
