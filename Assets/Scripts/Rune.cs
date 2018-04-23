@@ -21,6 +21,20 @@ public class Rune : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<Projectile>() && 
+            collision.gameObject.layer == LayerMask.NameToLayer("Player Bullets")) 
+        {
+            if (!pressed)
+            {
+                if (OnRuneHit != null)
+                    OnRuneHit(runeID);
+                Press();
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.GetComponent<Projectile>())
         {
             if (!pressed)

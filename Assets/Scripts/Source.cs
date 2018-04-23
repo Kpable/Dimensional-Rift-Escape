@@ -44,6 +44,11 @@ public class Source : MonoBehaviour {
             {
                 if (new Vector3(hit[i].point.x, hit[i].point.y, lastHitPoint.z) == lastHitPoint && hit.Length > 1)
                     continue;
+                else if(new Vector3(hit[i].point.x, hit[i].point.y, lastHitPoint.z) == lastHitPoint && hit.Length == 1)
+                {
+                    beamlength = maxDistance;
+                    break;
+                }
 
                 if (hit[i].collider == null || hit.Length == 1)
                 {

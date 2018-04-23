@@ -33,6 +33,8 @@ public class ShipReactor : MonoBehaviour {
     {
         Debug.Log(runeID + " was hit");
 
+        source.PlayOneShot(GameManager.Instance.clips[6]);
+
         passwordEntry[passindex] = runeID;
         passindex++;
         if (passindex == passwordEntry.Length)
@@ -58,11 +60,16 @@ public class ShipReactor : MonoBehaviour {
     void CorrectPassword()
     {
         Debug.Log("The password is correct");
+        source.PlayOneShot(GameManager.Instance.clips[8]);
+
+
     }
 
     void ResetRunes()
     {
         Debug.Log("Wrong password reset runes");
+        source.PlayOneShot(GameManager.Instance.clips[7]);
+
         for (int i = 0; i < runes.Length; i++)
         {
             runes[i].GetComponent<Rune>().Unpress();

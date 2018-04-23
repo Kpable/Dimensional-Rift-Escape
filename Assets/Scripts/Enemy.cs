@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
     public float delayBetweenShots = .3f;
     public Gun[] guns;
 
-    GunType currentGun = GunType.single;
+    public GunType currentGun = GunType.single;
 
     // Use this for initialization
     void Start () {
@@ -70,6 +70,8 @@ public class Enemy : MonoBehaviour {
     void Die()
     {
         Debug.Log(name + " died");
+        GameManager.Instance.enemyCount--;
+        GameManager.Instance.UpdateSlider();
         Destroy(gameObject);
 
     }

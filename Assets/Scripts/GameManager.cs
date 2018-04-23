@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
@@ -19,6 +20,12 @@ public class GameManager : MonoBehaviour {
     private bool hasTextChanged;
     int totalLives = 3;
 
+    public int enemyCount;
+    public int maxEnemyCount = 50;
+    public Slider enemyCapacitySllider;
+
+    public GameObject[] enemies;
+
     AudioSource source;
     private void Awake()
     {
@@ -33,6 +40,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
         source = GetComponent<AudioSource>();
         StartCoroutine("TellStory");
+
 	}
 	
 	// Update is called once per frame
@@ -42,22 +50,45 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator TellStory()
     {
+        yield return new WaitForSeconds(2);
+
         for (int i = 0; i < story.Length; i++)
         {
             storyText.text = story[i];
             StartCoroutine(RevealCharacters(storyText));
             
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
+
             if (i == 9)
             {
                 StartCoroutine("ShowLives");
                 yield return new WaitForSeconds(3);
 
             }
+            else if(i == 12)
+            {
+                StartCoroutine("ShowCapacity");
+                yield return new WaitForSeconds(3);
+
+            }
         }
 
+        yield return new WaitForSeconds(5);
+
         storyText.text = "";
-        
+
+        StartCoroutine("SpawnEnemies");
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 4));
+        Vector3 pos = new Vector3(Random.Range(-40, 40), Random.Range(-40, 40));
+        Instantiate(enemies[Random.Range(0, enemies.Length)], pos, Quaternion.identity);
+        enemyCount++;
+        UpdateSlider();
+        StartCoroutine("SpawnEnemies");
+
     }
 
 
@@ -72,6 +103,12 @@ public class GameManager : MonoBehaviour {
         TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
     }
 
+    public void UpdateSlider()
+    {
+        
+        enemyCapacitySllider.value = (float) enemyCount / (float) maxEnemyCount;
+
+    }
 
     // Event received when the text object has changed.
     void ON_TEXT_CHANGED(Object obj)
@@ -124,5 +161,11 @@ public class GameManager : MonoBehaviour {
             source.PlayOneShot(clips[0]);
             yield return new WaitForSeconds(1);
         }
+    }
+
+    IEnumerator ShowCapacity()
+    {
+        yield return new WaitForSeconds(1);
+        enemyCapacitySllider.gameObject.SetActive(true);
     }
 }

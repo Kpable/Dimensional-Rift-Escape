@@ -65,7 +65,7 @@ public class SpaceShip : MonoBehaviour {
                 guns[0].Fire();
                 guns[1].Fire();
                 guns[2].Fire();
-
+                 
                 break;
             case GunType.cannon:
                 source.PlayOneShot(GameManager.Instance.clips[5]);
