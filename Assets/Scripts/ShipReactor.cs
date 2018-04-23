@@ -12,8 +12,11 @@ public class ShipReactor : MonoBehaviour {
     int[] passwordEntry= new int[3];
 
     int passindex = 0;
+
+    AudioSource source;
 	// Use this for initialization
 	void Start () {
+        source = GetComponent<AudioSource>();
         for (int i = 0; i < runes.Length; i++)
         {
             runes[i].GetComponent<Rune>().OnRuneHit += RuneHit;

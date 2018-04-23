@@ -6808,11 +6808,16 @@ MonoBehaviour:
   - Diverting warp drive power to Emergency Services.
   - 'Quantum Recaller functional: 3 charges remaining. '
   lifeIcons:
-  - {fileID: 915254764}
-  - {fileID: 1553792318}
   - {fileID: 643560058}
+  - {fileID: 1553792318}
+  - {fileID: 915254764}
   clips:
   - {fileID: 8300000, guid: 87b8d0be26dfb1140b293e088423352e, type: 3}
+  - {fileID: 8300000, guid: 44c519f5c0f48c54fb7639a70c37e645, type: 3}
+  - {fileID: 8300000, guid: 6d0bdad70cf7f9c4d83a5b050363f941, type: 3}
+  - {fileID: 8300000, guid: 2a7a1f65a8330ce48a42468234f70a6e, type: 3}
+  - {fileID: 8300000, guid: 565ae4057b939864495e9faba9fe4f0a, type: 3}
+  - {fileID: 8300000, guid: 46499755b83e72044b5de114ca47b8fa, type: 3}
 --- !u!4 &1084750732
 Transform:
   m_ObjectHideFlags: 0
@@ -8653,6 +8658,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 3
   maxHealth: 3
+--- !u!1 &1530236097 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1405236778594192, guid: b09c7c894386aae44aa8306b72cf5342,
+    type: 2}
+  m_PrefabInternal: {fileID: 1210164034}
+--- !u!82 &1530236098
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530236097}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1553792318
 GameObject:
   m_ObjectHideFlags: 0

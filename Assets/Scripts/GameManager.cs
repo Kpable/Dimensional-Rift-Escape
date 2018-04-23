@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager Instance;
+
     public TMP_Text storyText;
     public string[] story;
     public GameObject[] lifeIcons;
@@ -18,7 +20,14 @@ public class GameManager : MonoBehaviour {
     int totalLives = 3;
 
     AudioSource source;
-
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -37,9 +46,14 @@ public class GameManager : MonoBehaviour {
         {
             storyText.text = story[i];
             StartCoroutine(RevealCharacters(storyText));
-            if (i == 9)
-                StartCoroutine("ShowLives");
+            
             yield return new WaitForSeconds(2);
+            if (i == 9)
+            {
+                StartCoroutine("ShowLives");
+                yield return new WaitForSeconds(3);
+
+            }
         }
 
         storyText.text = "";

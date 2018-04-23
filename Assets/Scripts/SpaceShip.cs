@@ -16,10 +16,12 @@ public class SpaceShip : MonoBehaviour {
 
     GunType currentGun = GunType.single;
 
+    AudioSource source;
 
     // Use this for initialization
     void Start()
     {
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -55,15 +57,18 @@ public class SpaceShip : MonoBehaviour {
         switch (currentGun)
         {
             case GunType.single:
+                source.PlayOneShot(GameManager.Instance.clips[2]);
                 guns[0].Fire();
                 break;
             case GunType.spread:
+                source.PlayOneShot(GameManager.Instance.clips[2]);
                 guns[0].Fire();
                 guns[1].Fire();
                 guns[2].Fire();
 
                 break;
             case GunType.cannon:
+                source.PlayOneShot(GameManager.Instance.clips[5]);
                 guns[3].Beam();
                 break;
             case GunType.shield:
@@ -81,12 +86,13 @@ public class SpaceShip : MonoBehaviour {
         if (collision.CompareTag("PowerUp"))
         {
             Debug.Log("Hit power up");
-
             // read what kiind of power up. 
             GunType powerUp = collision.GetComponent<PowerUp>().powerup;
             switch (powerUp)
             {
                 case GunType.single:
+                    source.PlayOneShot(GameManager.Instance.clips[1]);
+
                     guns[0].gameObject.SetActive(true);
                     guns[1].gameObject.SetActive(false);
                     guns[2].gameObject.SetActive(false);
@@ -94,6 +100,8 @@ public class SpaceShip : MonoBehaviour {
 
                     break;
                 case GunType.spread:
+                    source.PlayOneShot(GameManager.Instance.clips[1]);
+
                     guns[0].gameObject.SetActive(true);
                     guns[1].gameObject.SetActive(true);
                     guns[2].gameObject.SetActive(true);
@@ -101,12 +109,15 @@ public class SpaceShip : MonoBehaviour {
 
                     break;
                 case GunType.cannon:
+                    source.PlayOneShot(GameManager.Instance.clips[1]);
+
                     guns[0].gameObject.SetActive(false);
                     guns[1].gameObject.SetActive(false);
                     guns[2].gameObject.SetActive(false);
                     guns[3].gameObject.SetActive(true);
                     break;
                 case GunType.shield:
+                    source.PlayOneShot(GameManager.Instance.clips[3]);
                     guns[4].gameObject.SetActive(true);
                     break;
                 case GunType.max:
@@ -114,8 +125,8 @@ public class SpaceShip : MonoBehaviour {
                 default:
                     break;
             }
-
-            currentGun = powerUp;
+            if(powerUp != GunType.shield)
+                currentGun = powerUp;
             //Destroy(collision.gameObject);
         }
     }
